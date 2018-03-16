@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Consultar autor</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/autor.css'%}">
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+	<meta name="viewport" content="width=device-widt, initial-scale=1.0"/>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="{% url "inicio" %}">Inicio</a></li>
+			<li><a class="active" href="{% url "autor" %}">Autores</a></li>
+			<li><a href="{% url "libros" %}">Libros</a></li>
+			<li><a href="#">Genero</a></li>
+			<li><a href="#">Editoriales</a></li>
+		</ul>
+	</nav>
+	<div id="header">
+		<h2>AUTORES</h2>		
+	</div>
+
+	{% if info_enviado %}
+			<table id="table">
+				{% for i in lista %}
+					<tr>
+						<td class="td">Nombre</td>
+						<td class="td">identificado</td>
+						<td class="td">edad</td>
+						<td class="td">libros registrados</td>
+					</tr>
+					<tr>
+						<td class="td">{{ i.nombre }}</td>
+						<td class="td">{{ i.id }}</td>
+						<td class="td">{{ i.edad }}</td>
+						<td class="td"></td>
+					</tr>
+				{% endfor %}
+			</table>
+	{% else %}
+
+			
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{ formulario.nombre_autor }}
+				<input class="btn" type="submit" name="Enviar">
+			</form>
+	{% endif %}	
+</body>
+</html>

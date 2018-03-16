@@ -1,0 +1,27 @@
+{% load staticfiles %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>EL portal del LIBRO</title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/index.css'%}">
+	<meta name="viewport" content="width=device-widt, initial-scale=1.0"/>
+</head>
+<body>
+
+	<nav>
+		<ul>
+			<li class="active"><a href="{% url "inicio" %}">Inicio</a></li>
+			<li><a href="{% url "autor" %}">Autores</a></li>
+			<li><a href="{% url "libros" %}">Libros</a></li>
+			<li><a href="#">Genero</a></li>
+			<li><a href="#">Editoriales</a></li>
+			<li><a href="ma" "email me">email me</a></li>
+		</ul>
+	</nav>
+	<div class="ventana_flotante">
+		<H1>hola como estas</H1>	
+	</div>
+</body>
+</html>
